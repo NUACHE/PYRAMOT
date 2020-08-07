@@ -10,7 +10,7 @@ def get_url():
     contents = requests.get('https://api.covid19api.com/summary').json()
     # print(contents["Countries"])
 
-    
+    print('hi')
 
     globalContent = contents["Global"]
     want = contents["Countries"]
