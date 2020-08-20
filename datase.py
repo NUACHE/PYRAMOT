@@ -2,6 +2,10 @@ import requests
 
 
 # find users country from country code
+def findInv(json_object, countryCode):
+    return [obj for obj in json_object if obj['Country'] == countryCode][0]['CountryCode']
+
+
 def find(json_object, countryCode):
     return [obj for obj in json_object if obj['CountryCode'] == countryCode][0]['Country']
 
@@ -39,14 +43,14 @@ def totalRecovered(json_object, countryCode):
 # a switch-like solution to finding cases wanted
 def choice_to_number(choice, json_object, countryCode):
     switcher = {
-        'totalRecovered': totalRecovered(json_object, countryCode),
-        'newRecovered': newRecovered(json_object, countryCode),
-        'newDeaths': newDeaths(json_object, countryCode),
-        'totalDeaths': totalDeaths(json_object, countryCode),
-        'newConfirmed': newConfirmed(json_object, countryCode),
-        'totalConfirmed()': totalConfirmed(json_object, countryCode)
+        'Total Recoveries': totalRecovered(json_object, countryCode),
+        'New Recoveries': newRecovered(json_object, countryCode),
+        'New Deaths': newDeaths(json_object, countryCode),
+        'Total Deaths': totalDeaths(json_object, countryCode),
+        'New Confirmed': newConfirmed(json_object, countryCode),
+        'Total Confirmed': totalConfirmed(json_object, countryCode)
     }
-    print(switcher.get(choice, "Wrong input"))
+    return switcher.get(choice, "Wrong input")
 
 
 # finding user's country code from public ip address
